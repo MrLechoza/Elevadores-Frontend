@@ -81,11 +81,11 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
     );
   };
 
-  const manejarCambioPeso = (event: Event, nuevoValor: number | number[]) => {
+  const manejarCambioPeso = (_: unknown, nuevoValor: number | number[]) => {
     setPesoFiltro(nuevoValor as number[]);
   };
 
-  const manejarCambioAltura = (event: Event, nuevoValor: number | number[]) => {
+  const manejarCambioAltura = (_: unknown, nuevoValor: number | number[]) => {
     setAlturaFiltro(nuevoValor as number[]);
   };
 

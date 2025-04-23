@@ -31,7 +31,7 @@ function App() {
     });
   };
   return (
-    <Router>
+    <Router basename="/Elevadores-Frontend/">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

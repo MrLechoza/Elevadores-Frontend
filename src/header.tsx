@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Importa Link de React Router
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -14,22 +15,22 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50  transition-all duration-300  ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-gray-100 text-[#04203B] font-semibold bg-opacity-75 shadow-md"
           : "bg-transparent text-white"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        <a href="/" className="text-xl  font-inter font-bold">
+        <Link to="/" className="text-xl font-inter font-bold">
           Elevadores Venezuela
-        </a>
+        </Link>
         <nav>
           <ul className="flex gap-6">
             <li>
-              <a
-                href="/producto"
-                className="relative  text-[14px] font-inter transition group py-1"
+              <Link
+                to="/producto"
+                className="relative text-[14px] font-inter transition group py-1"
               >
                 Elevadores
                 <span
@@ -37,12 +38,12 @@ const Header: React.FC = () => {
                     isScrolled ? "bg-[#04203B]" : "bg-white"
                   }`}
                 />
-              </a>
+              </Link>
             </li>
             <li>
               <a
                 href="#servicios"
-                className="relative  text-[14px] font-inter transition group py-1 "
+                className="relative text-[14px] font-inter transition group py-1"
               >
                 Servicios
                 <span
@@ -53,9 +54,9 @@ const Header: React.FC = () => {
               </a>
             </li>
             <li>
-              <a
-                href="/contacto"
-                className="relative  text-[14px] font-inter transition group py-1 "
+              <Link
+                to="/contacto"
+                className="relative text-[14px] font-inter transition group py-1"
               >
                 Contacto
                 <span
@@ -63,7 +64,7 @@ const Header: React.FC = () => {
                     isScrolled ? "bg-[#04203B]" : "bg-white"
                   }`}
                 />
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

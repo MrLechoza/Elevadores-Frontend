@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import maquinariaData from "./data/maquinaria.json";
+import {productos} from "./data/maquinaria";
 import Producto, { ProductoProps } from "./productos";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -89,7 +89,7 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
     setAlturaFiltro(nuevoValor as number[]);
   };
 
-  const productosFiltrados = maquinariaData.filter(
+  const productosFiltrados = productos.filter(
     (maquina) =>
       (filtros.length === 0 || filtros.includes(maquina.tipo)) &&
       maquina.pesoTotal >= pesoFiltro[0] &&

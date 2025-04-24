@@ -6,13 +6,12 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Modal from "react-modal";
 import banner from "./assets/banner2.png";
 import Slider from "@mui/material/Slider";
-import { Scale } from "lucide-react";
 import styled from "@emotion/styled";
 import telescopico from "./assets/telescopico dibujo.png";
 import tijera from "./assets/tijera cartoon.png";
 import articulado from "./assets/articulado dibujo.png";
 import { motion } from "framer-motion";
-import { ShieldCheck, PhoneIcon } from "lucide-react";
+import { ShieldCheck, PhoneIcon, Scale } from "lucide-react";
 
 interface ListaProductosProps {
   filtros: string[];

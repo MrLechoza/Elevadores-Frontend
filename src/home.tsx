@@ -6,8 +6,10 @@ import {
   Wrench,
   ShieldCheck,
   Plus,
+  CalendarDays,
+  ArrowUp,
+  Headset,
 } from "lucide-react";
-import { CalendarDays, ArrowUp, Headset } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
@@ -40,7 +42,7 @@ function Home() {
           >
             <Construction className="w-5 h-5" />
             <div className="flex items-center">
-              <Plus className="w-3 h-3 text-[#04203B]" strokeWidth="3"/>
+              <Plus className="w-3 h-3 text-[#04203B]" strokeWidth="3" />
               <span className="font-bold items-center">
                 30 años de experiencia
               </span>
@@ -123,7 +125,6 @@ function Home() {
 
       <div className="bg-white py-24 px-8">
         <div className="max-w-6xl mx-auto">
-         
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

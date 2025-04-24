@@ -4,10 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  //base: '/Elevadores-Frontend/', 
   plugins: [
     react(),
-    tailwindcss()
+    tailwindcss(),
   ],
   
   

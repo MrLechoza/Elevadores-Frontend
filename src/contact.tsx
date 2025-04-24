@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 const Contacto: React.FC = () => {
   return (
-    <div className="max-w-screen min-h-screen bg-gradient-to-b from-gray-300 via-white to-white relative">
+    <div className="max-w-screen min-h-screen bg-gradient-to-b from-gray-300 via-white to-white relative mb-15">
       <div
         className="relative h-[500px] w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${foto})` }}

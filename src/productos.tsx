@@ -48,9 +48,9 @@ const Producto: React.FC<ProductoProps> = ({
 }) => {
   return (
     <div className="flex justify-center items-center">
-      <div className="flex flex-row shadow-lg  w-[700px] h-[330px]  bg-gradient-to-b from-white to-gray-100 hover:shadow-2xl transition-shadow duration-300">
+      <div className="flex flex-row shadow-lg  w-[700px] h-[330px]  bg-gradient-to-b from-white to-gray-100 hover:shadow-2xl transition-shadow duration-300 rounded-md ">
         <img
-          className="w-[40%] h-auto object-cover"
+          className="w-[40%] h-auto object-cover rounded-bl-md rounded-tl-md"
           src={imagen}
           alt={nombre}
         />

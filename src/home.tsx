@@ -5,13 +5,16 @@ import {
   GitPullRequest,
   Wrench,
   ShieldCheck,
+  Plus,
 } from "lucide-react";
 import { CalendarDays, ArrowUp, Headset } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="relative">
-      {/* Imagen hero con overlay */}
       <div className="relative h-screen w-full">
         <img
           src={fotoHome}
@@ -19,27 +22,31 @@ function Home() {
           className="w-full h-full object-cover absolute inset-0"
         />
 
-        {/* Overlay degradado */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#04203B]/90 to-[#04203B]/50" />
 
-        {/* Contenido */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
           className="relative h-full flex flex-col justify-center items-start px-8 lg:px-24 text-white"
         >
-          {/* Badge de experiencia */}
           <motion.div
             initial={{ x: -100 }}
             animate={{ x: 0 }}
-            className="bg-[#F6711E] text-[#04203B] px-6 py-2 rounded-full mb-6 flex items-center gap-2"
+            className="bg-[#F6711E] text-[#04203B] px-20 py-2  mb-6 flex items-center gap-2"
+            style={{
+              clipPath: "polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)",
+            }}
           >
             <Construction className="w-5 h-5" />
-            <span className="font-bold">+30 años de experiencia</span>
+            <div className="flex items-center">
+              <Plus className="w-3 h-3 text-[#04203B]" strokeWidth="3"/>
+              <span className="font-bold items-center">
+                30 años de experiencia
+              </span>
+            </div>
           </motion.div>
 
-          {/* Titulo principal */}
           <motion.h1
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -50,7 +57,6 @@ function Home() {
             <span className="text-[#F6711E]">elevación industrial</span>
           </motion.h1>
 
-          {/* Subtítulo */}
           <motion.p
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -61,7 +67,6 @@ function Home() {
             en toda Venezuela
           </motion.p>
 
-          {/* Puntos destacados */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -93,27 +98,32 @@ function Home() {
             </div>
           </motion.div>
 
-          {/* CTA */}
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1.2 }}
             className="flex gap-4"
           >
-            <button className="bg-[#F6711E] text-[#04203B] px-6 py-2 rounded-full font-bold hover:bg-[#f6711ebd] transition-all shadow-xl hover:-translate-y-1 duration-300  ease-in-out active:scale-95 cursor-pointer">
+            <button
+              onClick={() => navigate("/producto")}
+              className="bg-[#F6711E] text-[#04203B] px-6 py-2 rounded-full font-bold hover:bg-[#f6711ebd] transition-all shadow-xl hover:-translate-y-1 duration-300  ease-in-out active:scale-95 cursor-pointer"
+            >
               Ver Maquinaria
             </button>
-            <button className="border-2 border-white px-6 py-2 rounded-full hover:bg-white/10 transition-all hover:-translate-y-1 duration-300 ease-in-out cursor-pointer active:scale-95">
+            <a
+              href="https://wa.me/582414141652"
+              target="_blank"
+              className="border-2 border-white px-6 py-2 rounded-full hover:bg-white/10 transition-all hover:-translate-y-1 duration-300 ease-in-out cursor-pointer active:scale-95"
+            >
               Contáctanos
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </div>
 
-      
       <div className="bg-white py-24 px-8">
         <div className="max-w-6xl mx-auto">
-          {/* Encabezado */}
+         
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +133,6 @@ function Home() {
             Sobre Nosotros
           </motion.h2>
 
-          {/* Grid de información */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
@@ -153,7 +162,7 @@ function Home() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-all group"
+                className="p-6  shadow-lg rounded-xl hover:shadow-xl transition-all group"
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="mb-4">{item.icon}</div>
@@ -166,39 +175,76 @@ function Home() {
             ))}
           </div>
 
-          {/* Sección adicional */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
             className="mt-16 grid md:grid-cols-2 gap-12 items-center"
           >
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-[#04203B]">
+            <div className="space-y-6 relative">
+              <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#F6711E] to-[#FFAA00] rounded-full"></div>
+
+              <h3 className="text-3xl font-bold bg-gradient-to-r from-[#F6711E] to-[#FFAA00] bg-clip-text text-transparent">
                 Nuestra Historia
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Desde 1994, en P&V Inversiones nos hemos dedicado a proveer
-                soluciones seguras y confiables para trabajos en altura. Lo que
-                comenzó como un pequeño taller especializado, hoy es referencia
-                nacional en equipos de elevación industrial.
+
+              <p className="text-[#04203B]/90 leading-relaxed text-lg font-medium">
+                Desde 1994, en{" "}
+                <span className="text-[#F6711E] font-bold">
+                  P&V Inversiones
+                </span>{" "}
+                nos hemos dedicado a proveer soluciones seguras y confiables
+                para trabajos en altura. Lo que comenzó como un pequeño taller
+                especializado, hoy es referencia nacional en equipos de
+                elevación industrial.
               </p>
+
               <div className="flex items-center gap-4">
-                
-                <div className="flex-1 border-t border-[#F6711E]"></div>
+                <div className="flex gap-2">
+                  {[1, 2, 3].map((i) => (
+                    <div
+                      key={i}
+                      className="w-8 h-1 rounded-full bg-gradient-to-r from-[#F6711E] to-[#FFAA00]"
+                    ></div>
+                  ))}
+                </div>
+                <div className="flex-1 border-t border-[#F6711E]/30"></div>
               </div>
             </div>
 
-            <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden border-4 border-[#F6711E]">
-              <img
+            <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden group">
+              <div className="absolute inset-0 border-4 border-[#F6711E] rounded-2xl z-10 mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#F6711E]/20 to-[#04203B]/30"></div>
+
+              <motion.img
                 src="/equipo-trabajo.jpg"
                 alt="Nuestro equipo"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"
+                whileHover={{ scale: 1.05 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#04203B]/80 flex items-end p-6">
-                <span className="text-white font-semibold">
-                  Equipo técnico especializado
-                </span>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#04203B] via-transparent to-transparent flex items-end p-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-[#F6711E] rounded-lg">
+                    <svg
+                      className="w-6 h-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-white font-semibold text-xl drop-shadow-md">
+                    Equipo técnico especializado
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>

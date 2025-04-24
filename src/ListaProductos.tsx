@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {productos} from "./data/maquinaria";
+import { productos } from "./data/maquinaria";
 import Producto, { ProductoProps } from "./productos";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -101,7 +101,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
   return (
     <div className="w-[100%] flex flex-col">
       <div className="relative w-full group h-[600px] overflow-hidden">
-        {/* Contenedor de imagen con mejoras de hover */}
         <div className="w-full h-full">
           <img
             src={banner}
@@ -110,26 +109,25 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
           />
         </div>
 
-        {/* Overlay degradado profesional */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#04203B]/90 to-[#04203B]/50" />
 
-        {/* Contenido alineado al nuevo diseño */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="absolute inset-0 flex flex-col justify-center items-start pl-8 md:pl-12 lg:pl-24 text-white"
         >
-          {/* Badge de experiencia */}
           <motion.div
             initial={{ x: 100 }}
             animate={{ x: 0 }}
-            className="bg-[#F6711E] text-[#04203B] px-6 py-2 rounded-full mb-6 flex items-center gap-2 shadow-lg"
+            className="bg-[#F6711E] text-[#04203B] px-18 py-2 mb-6 flex items-center gap-2 shadow-lg"
+            style={{
+              clipPath: "polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)",
+            }}
           >
             <ShieldCheck className="w-5 h-5" />
             <span className="font-bold">Seguridad</span>
           </motion.div>
 
-          {/* Titulo principal con animación */}
           <motion.h2
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -140,7 +138,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
             horizontes mayores
           </motion.h2>
 
-          {/* Subtítulo mejorado */}
           <motion.p
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -150,26 +147,26 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
             Alturas extremas, seguridad garantizada
           </motion.p>
 
-          {/* Botón con nuevo estilo */}
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.9 }}
           >
-            <button
+            <a
+              href="https://wa.me/582414141652"
+              target="_blank"
               className="bg-[#F6711E] text-[#04203B] px-8 py-3 rounded-full font-bold hover:bg-[#f6711ebd] 
         transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95
         border-2 border-[#F6711E] flex items-center gap-2"
             >
               <PhoneIcon className="w-5 h-5" />
               <span>Contactar Ahora</span>
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </div>
 
       <div className="flex shadow-xl mx-auto w-[100%]">
-        {/* Filtros */}
         <div className="w-[25%] py-10 px-8 bg-white shadow-md rounded-lg">
           <h1 className="text-lg font-bold text-gray-800 mb-6">Filtros</h1>
 
@@ -219,7 +216,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
             />
           </div>
 
-          {/* Filtro por peso */}
           <h2 className="text-md font-semibold text-gray-700 mt-6 mb-4">
             Peso Total (kg)
           </h2>
@@ -233,7 +229,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
             sx={{ color: "#04203B" }}
           />
 
-          {/* Filtro por altura */}
           <h2 className="text-md font-semibold text-gray-700 mt-6 mb-4">
             Altura Máxima (m)
           </h2>
@@ -247,7 +242,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
             sx={{ color: "#04203B" }}
           />
 
-          {/* Botón para activar el modal */}
           <button
             className="flex gap-2 mt-4 bg-[#04203B] text-white py-2 px-4 rounded hover:bg-[#04203bdf]  hover:-translate-y-1 duration-300 transition ease-in-out active:scale-95"
             onClick={() => setMostrarModal(true)}
@@ -257,7 +251,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
           </button>
         </div>
 
-        {/* Lista de productos */}
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 p-10 shadow-xl w-[75%]">
           {productosFiltrados.map((maquina, index) => (
             <Producto
@@ -269,7 +262,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
         </div>
       </div>
 
-      {/* Modal para la comparativa */}
       <Modal
         isOpen={mostrarModal}
         onRequestClose={() => setMostrarModal(false)}
@@ -287,9 +279,7 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
           Comparativa de Productos
         </h2>
 
-        {/* Comparativa en 3 columnas */}
         <div className="flex  justify-center gap-2 items-start">
-          {/* Producto 1 */}
           {seleccionados[0] && (
             <div className="text-center w-[250px] p-4 px-0">
               <img
@@ -305,7 +295,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
                 {seleccionados[0].modelo}
               </h3>
               <div className="flex flex-col gap-4">
-                {/* Altura */}
                 <div className="relative w-full h-6 overflow-hidden">
                   <div
                     className={`absolute rounded-l-full top-0 right-0 h-full ${
@@ -328,7 +317,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
                   </div>
                 </div>
 
-                {/* Capacidad */}
                 <div className="relative w-full h-6  overflow-hidden">
                   <div
                     className={`absolute top-0 rounded-l-full right-0 h-full ${
@@ -353,7 +341,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
                   </div>
                 </div>
 
-                {/* Peso */}
                 <div className="relative w-full h-6  overflow-hidden">
                   <div
                     className={`absolute top-0 rounded-l-full right-0 h-full ${
@@ -379,14 +366,12 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
             </div>
           )}
 
-          {/* Categorías en el centro */}
           <div className="flex flex-col items-center mt-[238px] justify-center space-y-5 text-sm font-semibold text-gray-700 mx-2 ">
             <div>Altura Trabajo</div>
             <div>Capacidad</div>
             <div>Peso Total</div>
           </div>
 
-          {/* Producto 2 */}
           {seleccionados[1] && (
             <div className="text-center w-[250px] p-4 px-0 ">
               <img
@@ -401,7 +386,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
                 {seleccionados[1].modelo}
               </h3>
               <div className="flex flex-col gap-4">
-                {/* Altura */}
                 <div className="relative w-full h-6 overflow-hidden">
                   <div
                     className={`absolute top-0 rounded-r-full left-0 h-full ${
@@ -424,7 +408,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
                   </div>
                 </div>
 
-                {/* Capacidad */}
                 <div className="relative w-full h-6  overflow-hidden">
                   <div
                     className={`absolute top-0 rounded-r-full left-0 h-full ${
@@ -449,7 +432,6 @@ const ListaProductos: React.FC<ListaProductosProps> = ({
                   </div>
                 </div>
 
-                {/* Peso */}
                 <div className="relative w-full h-6 overflow-hidden">
                   <div
                     className={`absolute top-0 rounded-r-full left-0 h-full ${

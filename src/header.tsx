@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Importa Link de React Router
+import { Link } from "react-router-dom"; 
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  className?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ className  }) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {
@@ -15,7 +19,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`${className} fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-gray-100 text-[#04203B] font-semibold bg-opacity-75 shadow-md"
           : "bg-transparent text-white"
@@ -41,8 +45,8 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <a
-                href="#servicios"
+              <Link
+                to="/servicios"
                 className="relative text-[14px] font-inter transition group py-1"
               >
                 Servicios
@@ -51,7 +55,7 @@ const Header: React.FC = () => {
                     isScrolled ? "bg-[#04203B]" : "bg-white"
                   }`}
                 />
-              </a>
+              </Link>
             </li>
             <li>
               <Link

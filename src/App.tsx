@@ -38,7 +38,7 @@ function App() {
     });
   };
   return (
-    <Router>
+    <Router basename="/Elevadores-Frontend">
       
       <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
         <Header className="row-start-1" />
